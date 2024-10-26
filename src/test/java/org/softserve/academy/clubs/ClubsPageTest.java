@@ -22,7 +22,7 @@ public class ClubsPageTest {
 
     private static final String BASE_URL = "http://speak-ukrainian.eastus2.cloudapp.azure.com/dev/";
     private static final String CLUBS_MENU_ITEM_CSS = "span.ant-menu-title-content a[href='/dev/clubs']";
-    private static final String SECOND_PAGE_LINK_CSS = "a[rel='nofollow'][href*='?page=2']";//can be not correct
+    private static final String SECOND_PAGE_LINK_CSS = "li.ant-pagination-item-2 a";
     private static final String LOGO_SELECTOR_CSS = ".left-side-menu .logo";
 
     @BeforeAll
@@ -60,14 +60,14 @@ public class ClubsPageTest {
         assertEquals(expectedUrl, driver.getCurrentUrl(), "URL should be the clubs page URL");
     }
 
-    @Test
+   @Test
     @DisplayName("Test navigating to second page")
     public void testNavigateToSecondPage() {
         testClickClubsMenuItem();
 
         WebElement secondPageLink = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SECOND_PAGE_LINK_CSS)));
         scrollToElement(secondPageLink);
-        clickElementWithJS(secondPageLink);
+        secondPageLink.click();
         //TODO
     }
 
