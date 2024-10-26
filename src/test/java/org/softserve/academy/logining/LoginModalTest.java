@@ -99,11 +99,11 @@ public class LoginModalTest {
     public void testLoginFormFields() {
         openModalWindow();
 
-        WebElement emailInput = fillAndAssertField(EMAIL_INPUT_CSS_SELECTOR, "test@gmail.com");
-        WebElement passwordInput = fillAndAssertField(PASSWORD_INPUT_CSS_SELECTOR, "TestPass123!");
+        WebElement emailInput = fillAndAssertField(EMAIL_INPUT_CSS_SELECTOR, "test@gmail.com");// Update the email address to the one used during registration
+        WebElement passwordInput = fillAndAssertField(PASSWORD_INPUT_CSS_SELECTOR, "TestPass123!");// Update the password to the one used during registration
 
-        assertEquals("test@gmail.com", emailInput.getAttribute("value"));
-        assertEquals("TestPass123!", passwordInput.getAttribute("value"));
+        assertEquals("test@gmail.com", emailInput.getAttribute("value"));// Update the email address to the one used during registration
+        assertEquals("TestPass123!", passwordInput.getAttribute("value"));//// Update the password to the one used during registration
     }
 
     @Test
@@ -122,8 +122,8 @@ public class LoginModalTest {
     public void testSuccessfulLogin() {
         openModalWindow();
 
-        fillAndAssertField(EMAIL_INPUT_CSS_SELECTOR, "test@gmail.com");
-        fillAndAssertField(PASSWORD_INPUT_CSS_SELECTOR, "TestPass123!");
+        fillAndAssertField(EMAIL_INPUT_CSS_SELECTOR, "test@gmail.com");// Update the email address to the one used during registration
+        fillAndAssertField(PASSWORD_INPUT_CSS_SELECTOR, "TestPass123!");//// Update the password to the one used during registration
 
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(LOGIN_BUTTON_CSS_SELECTOR)));
         clickElementWithJS(loginButton);
